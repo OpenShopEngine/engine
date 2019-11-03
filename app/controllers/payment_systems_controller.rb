@@ -17,7 +17,7 @@ class PaymentSystemsController < ApplicationController
   # POST /payment_systems
   def create
     if @current_user.role? :admin
-      @payment_system = Locale.new(ActiveSupport::JSON.decode(request.body.read))
+      @payment_system = PaymentSystem.new(ActiveSupport::JSON.decode(request.body.read))
 
       if @payment_system.save
         render json: @payment_system, status: :created, location: @payment_system
