@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new(ActiveSupport::JSON.decode(request.body.read))
 
     if @user.save
       render json: @user.to_json(:except => :password_digest), status: :created, location: @user
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def update
     # TODO: Add role verification.
     if session[:user_id] == @user.id or @current_user.role? :admin
-      if @user.update(password: params[:password])
+      if @user.update(ActiveSupport::JSON.decode(request.body.read))
         render json: @user.to_json(:except => :password_digest)
       else
         render json: @user.errors, status: :unprocessable_entity
@@ -63,10 +63,5 @@ class UsersController < ApplicationController
 
     def current_user
       @current_user = User.find(session[:user_id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
     end
 end

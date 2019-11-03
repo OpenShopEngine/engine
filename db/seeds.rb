@@ -12,10 +12,11 @@ Product.create!([
                 ])
 
 Role.create!([
-  {name: "admin"}
+  {name: "admin"},
+  {name: "payment_system"}
              ])
 User.create!([
-             {username: "root", password_digest: "$2a$12$DV57cyPC6HZVgv0qA0bvAuWjxbXxE2QT3ixuB87os9T8EUO1Cjlbu", roles: [Role.find(1)]}
+             {username: "root", password_digest: "$2a$12$DV57cyPC6HZVgv0qA0bvAuWjxbXxE2QT3ixuB87os9T8EUO1Cjlbu", roles: [Role.find_by(name: "admin")]}
              ])
 
 Config.create!([
