@@ -24,3 +24,6 @@ npm install || exit 2
 ng build --configuration production-ru || exit 3
 ng build --configuration production-be || exit 3
 cd ..
+
+# Ruby on Rails setup
+bundle install
