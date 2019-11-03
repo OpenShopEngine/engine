@@ -1,5 +1,5 @@
 class AngularController < ActionController::Base
   def index
-    render file: 'public/' + (session[:locale] || "be") + '/index.html'
+    render file: 'public/' + (session[:locale] || "base") + '/index.html'
   end
 end

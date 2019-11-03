@@ -21,6 +21,7 @@ cd ..
 cd client || exit 1
 npm install || exit 2
 # Building client apps with different locales
+ng build --configuration production || exit 3
 ng build --configuration production-ru || exit 3
 ng build --configuration production-be || exit 3
 cd ..
