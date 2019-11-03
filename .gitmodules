@@ -4,3 +4,6 @@
 [submodule "client"]
 	path = client
 	url = https://github.com/OpenShopEngine/client.git
+[submodule "plugins/ppu"]
+	path = plugins/ppu
+	url = https://github.com/OpenShopEngine/ppu-plugin.git

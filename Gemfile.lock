@@ -1,5 +1,6 @@
-PATH
-  remote: plugins/ppu
+GIT
+  remote: https://github.com/OpenShopEngine/ppu-plugin.git
+  revision: f544d1c91c7e7423aaeceb73377ca71336ab3413
   specs:
     ppu (0.1.0)
       rails (~> 6.0.0)
