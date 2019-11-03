@@ -1,9 +1,0 @@
-<div class="jumbo">
-    <div class="right"></div>
-    <h2>Пользователи</h2>
-    <p>Список зарегистрированных пользователей</p>
-</div>
-
-{{#each this.model as |user|}}
-  <UserListing @user={{user}} />
-{{/each}}
