@@ -1,3 +1,4 @@
 Ppu::Engine.routes.draw do
-  get 'ppu' => 'ppu#index'
+  resources :transactions
+  resources :checkouts
 end
