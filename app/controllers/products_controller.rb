@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     if @current_user.role? :admin
-      @product = Product.new(product_params)
+      @product = Product.new(ActiveSupport::JSON.decode(request.body.read))
 
       if @product.save
         render json: @product, status: :created, location: @product
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @current_user.role? :admin
-      if @product.update(product_params)
+      if @product.update(ActiveSupport::JSON.decode(request.body.read))
         render json: @product
       else
         render json: @product.errors, status: :unprocessable_entity
