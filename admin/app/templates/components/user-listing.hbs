@@ -1,0 +1,19 @@
+<article class="listing">
+    <div class="details">
+        <h3>{{this.user.username}}</h3>
+        <div class="detail created">
+            <span>Создан:</span> {{this.user.created_at}}
+        </div>
+        <div class="detail updated">
+            <span>Обновлен:</span> {{this.user.updated_at}}
+        </div>
+        <div class="detail actions">
+          {{#link-to "users"}}
+              ✏️ Редактировать
+          {{/link-to}}
+          {{#link-to "users"}}
+              🗑️ Удалить
+          {{/link-to}}
+        </div>
+    </div>
+</article>

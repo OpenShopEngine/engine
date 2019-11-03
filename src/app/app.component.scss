@@ -1,0 +1,27 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  margin-bottom: 16px;
+}
+
+.content {
+  max-width: 960px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loading-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100000;
+}

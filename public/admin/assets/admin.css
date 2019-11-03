@@ -1,0 +1,39 @@
+table.config-table {
+  width: 100%;
+}
+
+.config-table th, .config-table td {
+  width: 50%;
+  padding: 10px;
+}
+
+table.config-table, .config-table th, .config-table td {
+  border-collapse: collapse;
+  position:relative;
+  border: solid 1px black;
+}
+
+input.login-input {
+  margin-bottom: 10px;
+}
+
+a[role=button] {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+span.filledInput input {
+  width: 100%;
+  border: none;
+}
+span.filledInput {
+  display: block;
+  overflow: hidden;
+  padding-right:10px;
+
+  border-radius: 5px;
+  border: solid 2px #677ae4;
+}

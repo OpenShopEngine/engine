@@ -1,0 +1,11 @@
+<div class="jumbo">
+    <div class="right"></div>
+    <h2>Вход</h2>
+    <form {{action "login"}}>
+        <Input class="login-input" placeholder="Имя пользователя" @id="login-username" @input={{action "updateCred"}} />
+        <br />
+        <Input class="login-input" type="password" placeholder="Пароль" @id="login-password" @input={{action "updateCred"}} />
+        <br />
+        <button type="submit">Войти</button>
+    </form>
+</div>

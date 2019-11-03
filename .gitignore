@@ -44,3 +44,16 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#RAILS
+/.bundle
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

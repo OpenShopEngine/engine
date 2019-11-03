@@ -1,0 +1,16 @@
+<h3>Конфигурация веб-приложения</h3>
+<table class="config-table">
+    <tr>
+        <th>Параметр</th>
+        <th>Значение</th>
+    </tr>
+  {{#each this.configs as |config|}}
+      <tr>
+          <td><label for="config-value-{{config.id}}">{{config.property}}</label></td>
+          <td><span class="filledInput"><Input @id="config-value-{{config.id}}" @value="{{config.value}}" @input={{action "preUpdateValue"}}></Input></span></td>
+      </tr>
+  {{/each}}
+    <tr>
+        <td colspan="2" style="text-align: center;"><button {{action "update"}}>Обновить</button></td>
+    </tr>
+</table>
