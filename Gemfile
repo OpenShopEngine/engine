@@ -45,3 +45,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem "pundit"
 
 gem 'cancancan'
+
+gem 'ppu', path: 'plugins/ppu'

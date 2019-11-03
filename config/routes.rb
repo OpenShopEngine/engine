@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :products
     resources :users
     resources :payment_systems
+    resources :ppu_checkouts
 
     resources :locales
 
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
     get 'sessions/current_user'
 
     get 'sessions/is_admin' => 'admin#index'
+
+    mount Ppu::Engine, at: '/ppu'
   end
 
   get '*p' => 'angular#index'
