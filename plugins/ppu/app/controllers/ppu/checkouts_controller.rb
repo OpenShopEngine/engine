@@ -18,7 +18,7 @@ module Ppu
 
     # POST /checkouts
     def create
-      @checkout = Checkout.new(checkout_params)
+      @checkout = Checkout.new(ActiveSupport::JSON.decode(request.body.read))
 
       if @checkout.save
         render json: @checkout, status: :created, location: @checkout
@@ -29,7 +29,7 @@ module Ppu
 
     # PATCH/PUT /checkouts/1
     def update
-      if @checkout.update(checkout_params)
+      if @checkout.update(ActiveSupport::JSON.decode(request.body.read))
         render json: @checkout
       else
         render json: @checkout.errors, status: :unprocessable_entity
@@ -45,11 +45,6 @@ module Ppu
       # Use callbacks to share common setup or constraints between actions.
       def set_checkout
         @checkout = Checkout.find(params[:id])
-      end
-
-      # Only allow a trusted parameter "white list" through.
-      def checkout_params
-        params.require(:checkout).permit(:fullname, :email, :phone, :address, :products)
       end
   end
 end

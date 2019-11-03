@@ -18,7 +18,7 @@ module Ppu
 
     # POST /transactions
     def create
-      @transaction = Transaction.new(transaction_params)
+      @transaction = Transaction.new(ActiveSupport::JSON.decode(request.body.read))
 
       if @transaction.save
         render json: @transaction, status: :created, location: @transaction
@@ -29,7 +29,7 @@ module Ppu
 
     # PATCH/PUT /transactions/1
     def update
-      if @transaction.update(transaction_params)
+      if @transaction.update(ActiveSupport::JSON.decode(request.body.read))
         render json: @transaction
       else
         render json: @transaction.errors, status: :unprocessable_entity
@@ -45,11 +45,6 @@ module Ppu
       # Use callbacks to share common setup or constraints between actions.
       def set_transaction
         @transaction = Transaction.find(params[:id])
-      end
-
-      # Only allow a trusted parameter "white list" through.
-      def transaction_params
-        params.require(:transaction).permit(:checkout_id, :payout)
       end
   end
 end
