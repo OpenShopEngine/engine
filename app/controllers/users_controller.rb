@@ -34,7 +34,6 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    # TODO: Add role verification.
     if session[:user_id] == @user.id or @current_user.role? :admin
       if @user.update(ActiveSupport::JSON.decode(request.body.read))
         render json: @user.to_json(:except => :password_digest)
