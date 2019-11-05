@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'sessions/is_admin' => 'admin#index'
 
     mount Ppu::Engine, at: '/ppu'
+    mount PpuConnector::Engine, at: '/ppu_connector'
     mount Blog::Engine, at: '/blog'
   end
 

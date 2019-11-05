@@ -5,6 +5,12 @@ PATH
       rails (~> 6.0.0)
 
 PATH
+  remote: plugins/ppu-connector
+  specs:
+    ppu_connector (0.1.0)
+      rails (~> 6.0.0)
+
+PATH
   remote: plugins/ppu
   specs:
     ppu (0.1.0)
@@ -173,6 +179,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   ppu!
+  ppu_connector!
   puma (~> 3.11)
   pundit
   rack-cors
