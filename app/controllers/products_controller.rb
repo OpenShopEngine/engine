@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :update, :destroy]
+  before_action :set_product, only: [:show, :getPhoto, :update, :destroy]
   before_action :current_user, only: [:create, :update, :destroy]
 
   # GET /products
@@ -12,6 +12,11 @@ class ProductsController < ApplicationController
   # GET /products/1
   def show
     render json: @product
+  end
+
+  def getPhoto
+    blob = ActiveStorage::Blob.find_signed(@product.photo)
+    send_data blob.download, :type => blob.content_type, :filename => 'photo.png', :disposition => 'inline'
   end
 
   # POST /products
@@ -59,10 +64,5 @@ class ProductsController < ApplicationController
 
     def current_user
       @current_user = User.find(session[:user_id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def product_params
-      params.require(:product).permit(:name, :description, :price)
     end
 end

@@ -47,3 +47,5 @@ gem "pundit"
 gem 'cancancan'
 
 gem 'ppu', path: 'plugins/ppu'
+
+gem 'blog', path: 'plugins/blog'

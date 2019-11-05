@@ -7,3 +7,6 @@
 [submodule "plugins/ppu"]
 	path = plugins/ppu
 	url = https://github.com/OpenShopEngine/ppu-plugin.git
+[submodule "plugins/blog"]
+	path = plugins/blog
+	url = https://github.com/OpenShopEngine/blog-plugin.git

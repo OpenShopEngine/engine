@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   scope 'api' do
     resources :purchases
     resources :carts
+
     resources :products
+    get 'products/:id/photo' => 'products#getPhoto'
+
     resources :users
     resources :payment_systems
     resources :ppu_checkouts
-
+    resources :direct_upload
     resources :locales
-
     resources :configs
 
     get 'sessions/login'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     get 'sessions/is_admin' => 'admin#index'
 
     mount Ppu::Engine, at: '/ppu'
+    mount Blog::Engine, at: '/blog'
   end
 
   get '*p' => 'angular#index'
