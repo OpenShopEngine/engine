@@ -49,3 +49,5 @@ gem 'cancancan'
 gem 'ppu', path: 'plugins/ppu'
 
 gem 'blog', path: 'plugins/blog'
+
+gem 'ppu_connector', path: 'ppu_connector'
