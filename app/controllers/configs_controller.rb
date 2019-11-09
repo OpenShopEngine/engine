@@ -17,7 +17,7 @@ class ConfigsController < ApplicationController
   # POST /configs
   def create
     if @current_user.role? :admin
-      @config = Config.new(ActiveSupport::JSON.decode(request.body.read))
+      @config = Config.new(config_params)
 
       if @config.save
         render json: @config, status: :created, location: @config
@@ -32,7 +32,7 @@ class ConfigsController < ApplicationController
   # PATCH/PUT /configs/1
   def update
     if @current_user.role? :admin
-      if @config.update(ActiveSupport::JSON.decode(request.body.read))
+      if @config.update(config_params)
         render json: @config
       else
         render json: @config.errors, status: :unprocessable_entity
@@ -63,6 +63,6 @@ class ConfigsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def config_params
-      params.require(:config).permit(:property, :value)
+      params.permit(:property, :value)
     end
 end

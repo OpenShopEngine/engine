@@ -17,7 +17,7 @@ class PaymentSystemsController < ApplicationController
   # POST /payment_systems
   def create
     if @current_user.role? :admin
-      @payment_system = PaymentSystem.new(ActiveSupport::JSON.decode(request.body.read))
+      @payment_system = PaymentSystem.new(payment_system_params)
 
       if @payment_system.save
         render json: @payment_system, status: :created, location: @payment_system
@@ -32,7 +32,7 @@ class PaymentSystemsController < ApplicationController
   # PATCH/PUT /payment_systems/1
   def update
     if @current_user.role? :admin
-      if @payment_system.update(ActiveSupport::JSON.decode(request.body.read))
+      if @payment_system.update(payment_system_params)
         render json: @payment_system
       else
         render json: @payment_system.errors, status: :unprocessable_entity
@@ -59,5 +59,10 @@ class PaymentSystemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_payment_system
       @payment_system = PaymentSystem.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def payment_system_params
+      params.permit(:name, :provider)
     end
 end

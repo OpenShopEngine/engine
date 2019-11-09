@@ -18,7 +18,7 @@ class LocalesController < ApplicationController
   # POST /locales
   def create
     if @current_user.role? :admin
-      @locale = Locale.new(ActiveSupport::JSON.decode(request.body.read))
+      @locale = Locale.new(locale_params)
 
       if @locale.save
         render json: @locale, status: :created, location: @locale
@@ -33,7 +33,7 @@ class LocalesController < ApplicationController
   # PATCH/PUT /locales/1
   def update
     if @current_user.role? :admin
-      if @locale.update(ActiveSupport::JSON.decode(request.body.read))
+      if @locale.update(locale_params)
         render json: @locale
       else
         render json: @locale.errors, status: :unprocessable_entity
@@ -59,5 +59,10 @@ class LocalesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_locale
       @locale = Locale.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def locale_params
+      params.permit(:title, :locale)
     end
 end
