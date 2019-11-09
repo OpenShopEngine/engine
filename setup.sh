@@ -11,14 +11,8 @@ git submodule init || exit 2
 # Install global dependencies for build
 npm install -g @angular/cli || exit 2
 
-# Setup admin
-cd admin || exit 1
-npm install || exit 2
-npm run build || exit 3
-cd ..
-
-# Setup client
-cd client || exit 1
+# Setup frontend
+cd frontend || exit 1
 npm install || exit 2
 # Building client apps with different locales
 ng build --configuration production || exit 3

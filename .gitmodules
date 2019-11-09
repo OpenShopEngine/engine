@@ -7,3 +7,6 @@
 [submodule "plugins/ppu-connector"]
 	path = plugins/ppu-connector
 	url = https://github.com/OpenShopEngine/ppu-connector.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/OpenShopEngine/frontend.git

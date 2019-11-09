@@ -15,6 +15,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def current
+    render json: session
+  end
+
   def current_user
     render json: User.find(session[:user_id]).to_json(:except => :password_digest)
   end
