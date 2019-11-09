@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_144918) do
     t.string "name"
     t.string "description"
     t.decimal "price"
-    t.string "photo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "available"
