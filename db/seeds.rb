@@ -7,14 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-Product.create!([
-                {name: "Носки. Новый год 2020!", description: "Красивые, теплые, шерстяные и просто замечательные!", price: 8.99, photo: "https://cdn.notonthehighstreet.com/fs/79/16/a258-a78f-476a-ac4b-88a2aa5a5694/original_handmade-wool-socks.jpg", available: 1}
-                ])
-
 Role.create!([
   {name: "admin"},
   {name: "payment_system"}
              ])
+
 User.create!([
              {username: "root", password_digest: "$2a$12$DV57cyPC6HZVgv0qA0bvAuWjxbXxE2QT3ixuB87os9T8EUO1Cjlbu", roles: [Role.find_by(name: "admin")]}
              ])
@@ -22,6 +19,7 @@ User.create!([
 Config.create!([
   {property: "general.title", value: "OpenShop"},
   {property: "general.currency", value: "USD"},
+  {property: "client.experimental.features.checkout", value: "true"},
                ])
 
 Locale.create!([
@@ -29,3 +27,7 @@ Locale.create!([
   {title: "Русский", locale: "ru"},
   {title: "Беларуская", locale: "be"},
                ])
+
+PaymentSystem.create!([
+  {name: 'Cash on delivery', provider: '/api/ppu_connector/'}
+                      ])

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'sessions/login'
     get 'sessions/logout'
     get 'sessions/current_user'
+    get 'sessions/current'
 
     get 'sessions/is_admin' => 'admin#index'
 

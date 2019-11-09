@@ -51,3 +51,5 @@ gem 'ppu', path: 'plugins/ppu'
 gem 'blog', path: 'plugins/blog'
 
 gem 'ppu_connector', path: 'plugins/ppu-connector'
+
+gem 'image_processing'
