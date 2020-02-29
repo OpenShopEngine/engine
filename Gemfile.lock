@@ -74,8 +74,6 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.1, >= 2.1.8)
-    attr_encrypted (3.1.0)
-      encryptor (~> 3.0.0)
     bcrypt (3.1.13)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -84,7 +82,6 @@ GEM
     cancancan (3.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
-    encryptor (3.0.0)
     erubi (1.9.0)
     ffi (1.11.1)
     globalid (0.4.2)
@@ -116,7 +113,8 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
-    puma (3.12.1)
+    puma (4.3.3)
+      nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.7)
@@ -180,7 +178,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  attr_encrypted (~> 3.1.0)
   bcrypt (~> 3.1.7)
   blog!
   bootsnap (>= 1.4.2)
@@ -191,7 +188,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   ppu!
   ppu_connector!
-  puma (~> 3.11)
+  puma (~> 4.3)
   pundit
   rack-cors
   rails (~> 6.0.0)
